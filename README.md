@@ -117,6 +117,8 @@ just install
 
 Then write a config at `~/.config/qtengine/config.json`, additionally it can be sourced from a folder in your `XDG_CONFIG_DIRS`, or by using the `QTENGINE_CONFIG` environment variable.
 
+For a full list of config options and what they do visit the [Wiki](https://github.com/kossLAN/qtengine/wiki/Config-Options).
+
 ```json
 {
   "theme": {

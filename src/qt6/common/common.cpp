@@ -1,6 +1,7 @@
 #include "common.hpp"
 
 #include <kcolorscheme.h>
+#include <kconfig.h>
 #include <ksharedconfig.h>
 #include <qpalette.h>
 #include <qstring.h>

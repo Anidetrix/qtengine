@@ -226,6 +226,10 @@ void PlatformTheme::applySettings() {
 
 	if (!cfg.colorScheme.isEmpty()) {
 		qApp->setProperty("KDE_COLOR_SCHEME_PATH", cfg.colorScheme);
+
+		// qt won't notify for an unchanged path, so poke styles like darkly to reload anyway
+		QDynamicPropertyChangeEvent event("KDE_COLOR_SCHEME_PATH");
+		QCoreApplication::sendEvent(qApp, &event);
 	} else if (this->mUpdate) {
 		qApp->setProperty("KDE_COLOR_SCHEME_PATH", QVariant());
 	}

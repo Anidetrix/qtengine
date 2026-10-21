@@ -129,13 +129,13 @@ QStringList PlatformTheme::iconPaths() {
 	paths.removeDuplicates();
 
 	// remove invalid
-	QStringList::iterator it = paths.begin();
-	while (it != paths.end()) {
-		if (QDir(*it).exists()) ++it;
-		else it = paths.erase(it);
+	QStringList valid;
+	valid.reserve(paths.size());
+	for (const QString& path : std::as_const(paths)) {
+		if (QDir(path).exists()) valid << path;
 	}
 
-	return paths;
+	return valid;
 }
 
 QVariant PlatformTheme::themeHint(QPlatformTheme::ThemeHint hint) const {

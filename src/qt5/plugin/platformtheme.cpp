@@ -126,8 +126,8 @@ QStringList PlatformTheme::iconPaths() {
 	// remove invalid
 	QStringList valid;
 	valid.reserve(paths.size());
-	for (const QString& path : std::as_const(paths)) {
-		if (QDir(path).exists()) valid << path;
+	for (const QString& p: std::as_const(paths)) {
+		if (QDir(p).exists()) valid << p;
 	}
 
 	return valid;
